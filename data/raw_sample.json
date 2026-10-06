@@ -1,0 +1,17 @@
+[
+  {
+    "instruction": "Generate OpenAPI 3.0 path documentation in JSON for endpoint POST /v1/telemetry/events.",
+    "context": "Ingests observability events (metrics, logs, traces) with JSON body containing timestamp, service_name, event_type, and payload dictionary.",
+    "expected_output": "{\"path\": \"/v1/telemetry/events\", \"method\": \"POST\", \"summary\": \"Ingest observability events\", \"responses\": {\"200\": {\"description\": \"Events successfully ingested\"}, \"400\": {\"description\": \"Invalid payload schema\"}}}"
+  },
+  {
+    "instruction": "Convert raw release notes into Markdown bullet points grouped by Feature, Bug Fix, and Breaking Change.",
+    "context": "PR 102: Added OAuth2 authorization code flow. PR 105: Fixed crash on null user email during signup. PR 108: Deprecated v1 auth API.",
+    "expected_output": "### 🚀 Features\n- Added OAuth2 authorization code flow (#102)\n\n### 🐛 Bug Fixes\n- Fixed crash when user email is null during signup (#105)\n\n### ⚠️ Breaking Changes\n- Deprecated legacy v1 authentication endpoints (#108)"
+  },
+  {
+    "instruction": "Synthesize a Kubernetes deployment manifest YAML for a FastAPI microservice named 'doc-ingest-service'.",
+    "context": "Container image: ghcr.io/org/doc-ingest:v2.1.0, port: 8080, memory request: 512Mi, cpu request: 250m.",
+    "expected_output": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: doc-ingest-service\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: doc-ingest\n  template:\n    metadata:\n      labels:\n        app: doc-ingest\n    spec:\n      containers:\n      - name: doc-ingest\n        image: ghcr.io/org/doc-ingest:v2.1.0\n        ports:\n        - containerPort: 8080\n        resources:\n          requests:\n            memory: \"512Mi\"\n            cpu: \"250m\""
+  }
+]
